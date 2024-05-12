@@ -14,19 +14,6 @@ def calc_acrostic(inx, data):
       res += i[inx]
   return res
 
-def main():
-  inx = 0
-
-  for i in range(1,151):
-    filename = './Prakim/Perek' + str(i) + '.txt'
-    with open(filename, 'r', encoding='utf-8') as input_file:
-      dict_acrostics[i] = calc_acrostic(inx, input_file.read().replace(' ', ''))
-
-  for i in range(1,151):
-    res_file.write(f'Perek{i}, inx is {inx}: {dict_acrostics[i]} \n')
-
-if __name__ == '__main__':
-  main()
 
 def simple_interface():
 
@@ -40,4 +27,17 @@ def simple_interface():
 
   print(f'Perek{perek}, inx is {inx}: {acrostics}\ndata: \n{data}')
 
-simple_interface()
+
+def main():
+  inx = 0
+
+  for i in range(1,151):
+    filename = './Prakim/Perek' + str(i) + '.txt'
+    with open(filename, 'r', encoding='utf-8') as input_file:
+      dict_acrostics[i] = calc_acrostic(inx, input_file.read().replace(' ', ''))
+
+  for i in range(1,151):
+    res_file.write(f'Perek{i}, inx is {inx}: {dict_acrostics[i]} \n')
+
+if __name__ == '__main__':
+  main()
